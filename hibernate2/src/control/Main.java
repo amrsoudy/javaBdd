@@ -29,51 +29,43 @@ public class Main {
         session.beginTransaction();
         
 
-       // Query query = session.createQuery("from Employees where Employee_id = ?");
+        Query query = session.createQuery("from Employees where first_name like ?");
         
-       // query.setParameter(0, 150);
-       // List<Employees> result = query.list();
-       
-       Criteria criteria = session.createCriteria(Employees.class);
-       criteria.add(Restrictions.like("firstName","S%"));
-         criteria.add(Restrictions.gt("salary", new BigDecimal(6000)));
-      criteria.add(Restrictions.lt("salary", new BigDecimal(10000)));
-       List list = criteria.list();
-       
-      for (Iterator iterator = list.iterator(); iterator.hasNext();){
-            Employees employee = (Employees) iterator.next(); 
-            System.out.print("First Name: " + employee.getFirstName() ); 
-            System.out.print("  Last Name: " + employee.getLastName()); 
-            System.out.print("  Salary:  " + employee.getSalary() ); 
-          System.out.println("   Dept_name    "+employee.getDepartments().getDepartmentName());
-         }
+        query.setParameter(0, "S%");
+        List<Employees> result = query.list();
+//       
+//       Criteria criteria = session.createCriteria(Employees.class);
+//       criteria.add(Restrictions.like("firstName","S%"));
+//         criteria.add(Restrictions.gt("salary", new BigDecimal(6000)));
+//      criteria.add(Restrictions.lt("salary", new BigDecimal(10000)));
+//       List list = criteria.list();
+//       
+//      for (Iterator iterator = list.iterator(); iterator.hasNext();){
+//            Employees employee = (Employees) iterator.next(); 
+//            System.out.print("First Name: " + employee.getFirstName() ); 
+//            System.out.print("  Last Name: " + employee.getLastName()); 
+//            System.out.print("  Salary:  " + employee.getSalary() ); 
+//          System.out.println("   Dept_name    "+employee.getDepartments().getDepartmentName());
+//         }
+//      
+      
+      
         
-//        for (Employees e : list) {
-//          //  if (e.getEmployeeId() == 150){
-//            if(e.getDepartments()!=null){
-//                System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + e.getDepartments().getDepartmentName());
-//            }else {
-//             System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + null);
-//            
-//            }
-//          }
-//            if(e.getDepartments()!=null){
-//                Query query2 = session.createQuery("from Departments");
-//                List<Departments> list2 = query.list();
-//                for(Departments d :list2){
-//                
-//                if (e.getDepartments().equals(d.getDepartmentId())){
-//                    
-//                    System.out.print(d.getDepartmentName());
-//                
-//                
-//                }
-                //}
+        for (Employees e : result) {
+           
+            if(e.getDepartments()!=null){
+                System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + e.getDepartments().getDepartmentName());
+            }else {
+             System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + null);
+            
+            }
+          
+            
+                
                 
                 
         
-         //   }
-     //   }
+        }
 
         session.close();
 
