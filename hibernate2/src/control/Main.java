@@ -42,9 +42,10 @@ public class Main {
        
       for (Iterator iterator = list.iterator(); iterator.hasNext();){
             Employees employee = (Employees) iterator.next(); 
-            System.out.print("First Name: " + employee.getFirstName()); 
+            System.out.print("First Name: " + employee.getFirstName() ); 
             System.out.print("  Last Name: " + employee.getLastName()); 
-            System.out.println("  Salary: " + employee.getSalary()); 
+            System.out.print("  Salary:  " + employee.getSalary() ); 
+          System.out.println("   Dept_name    "+employee.getDepartments().getDepartmentName());
          }
         
 //        for (Employees e : list) {
