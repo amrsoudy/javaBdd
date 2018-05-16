@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2018-05-14 16:36:57 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2018-05-16 08:27:00 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entites.Employees" table="EMPLOYEES" schema="HR" optimistic-lock="version">
         <comment>employees table. Contains 107 rows. References with departments, jobs, job_history tables. Contains a self reference.</comment>
@@ -13,6 +13,11 @@
             <column name="MANAGER_ID" precision="6" scale="0">
                 <comment>Manager id of the employee; has same domain as manager_id in departments table. Foreign key to employee_id column of employees table. (useful for
                 reflexive joins and CONNECT BY query)</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="jobs" class="entites.Jobs" fetch="select">
+            <column name="JOB_ID" length="10" not-null="true">
+                <comment>Current job of the employee; foreign key to job_id column of the jobs table. A not null column.</comment>
             </column>
         </many-to-one>
         <many-to-one name="departments" class="entites.Departments" fetch="select">
@@ -43,11 +48,6 @@
         <property name="hireDate" type="date">
             <column name="HIRE_DATE" length="7" not-null="true">
                 <comment>Date when the employee started on this job. A not null column.</comment>
-            </column>
-        </property>
-        <property name="jobId" type="string">
-            <column name="JOB_ID" length="10" not-null="true">
-                <comment>Current job of the employee; foreign key to job_id column of the jobs table. A not null column.</comment>
             </column>
         </property>
         <property name="salary" type="big_decimal">

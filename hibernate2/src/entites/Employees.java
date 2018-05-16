@@ -1,5 +1,5 @@
 package entites;
-// Generated 2018-05-14 16:36:57 by Hibernate Tools 4.3.1
+// Generated 2018-05-16 08:26:59 by Hibernate Tools 4.3.1
 
 
 import java.math.BigDecimal;
@@ -15,13 +15,13 @@ public class Employees  implements java.io.Serializable {
 
      private int employeeId;
      private Employees employees;
+     private Jobs jobs;
      private Departments departments;
      private String firstName;
      private String lastName;
      private String email;
      private String phoneNumber;
      private Date hireDate;
-     private String jobId;
      private BigDecimal salary;
      private BigDecimal commissionPct;
      private Set departmentses = new HashSet(0);
@@ -31,23 +31,23 @@ public class Employees  implements java.io.Serializable {
     }
 
 	
-    public Employees(int employeeId, String lastName, String email, Date hireDate, String jobId) {
+    public Employees(int employeeId, Jobs jobs, String lastName, String email, Date hireDate) {
         this.employeeId = employeeId;
+        this.jobs = jobs;
         this.lastName = lastName;
         this.email = email;
         this.hireDate = hireDate;
-        this.jobId = jobId;
     }
-    public Employees(int employeeId, Employees employees, Departments departments, String firstName, String lastName, String email, String phoneNumber, Date hireDate, String jobId, BigDecimal salary, BigDecimal commissionPct, Set departmentses, Set employeeses) {
+    public Employees(int employeeId, Employees employees, Jobs jobs, Departments departments, String firstName, String lastName, String email, String phoneNumber, Date hireDate, BigDecimal salary, BigDecimal commissionPct, Set departmentses, Set employeeses) {
        this.employeeId = employeeId;
        this.employees = employees;
+       this.jobs = jobs;
        this.departments = departments;
        this.firstName = firstName;
        this.lastName = lastName;
        this.email = email;
        this.phoneNumber = phoneNumber;
        this.hireDate = hireDate;
-       this.jobId = jobId;
        this.salary = salary;
        this.commissionPct = commissionPct;
        this.departmentses = departmentses;
@@ -67,6 +67,13 @@ public class Employees  implements java.io.Serializable {
     
     public void setEmployees(Employees employees) {
         this.employees = employees;
+    }
+    public Jobs getJobs() {
+        return this.jobs;
+    }
+    
+    public void setJobs(Jobs jobs) {
+        this.jobs = jobs;
     }
     public Departments getDepartments() {
         return this.departments;
@@ -109,13 +116,6 @@ public class Employees  implements java.io.Serializable {
     
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
-    }
-    public String getJobId() {
-        return this.jobId;
-    }
-    
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
     }
     public BigDecimal getSalary() {
         return this.salary;

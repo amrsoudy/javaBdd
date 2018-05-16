@@ -1,5 +1,5 @@
 package entites;
-// Generated 2018-05-14 16:36:57 by Hibernate Tools 4.3.1
+// Generated 2018-05-16 08:26:59 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,8 +13,8 @@ public class Departments  implements java.io.Serializable {
 
      private short departmentId;
      private Employees employees;
+     private Locations locations;
      private String departmentName;
-     private Short locationId;
      private Set employeeses = new HashSet(0);
 
     public Departments() {
@@ -25,11 +25,11 @@ public class Departments  implements java.io.Serializable {
         this.departmentId = departmentId;
         this.departmentName = departmentName;
     }
-    public Departments(short departmentId, Employees employees, String departmentName, Short locationId, Set employeeses) {
+    public Departments(short departmentId, Employees employees, Locations locations, String departmentName, Set employeeses) {
        this.departmentId = departmentId;
        this.employees = employees;
+       this.locations = locations;
        this.departmentName = departmentName;
-       this.locationId = locationId;
        this.employeeses = employeeses;
     }
    
@@ -47,19 +47,19 @@ public class Departments  implements java.io.Serializable {
     public void setEmployees(Employees employees) {
         this.employees = employees;
     }
+    public Locations getLocations() {
+        return this.locations;
+    }
+    
+    public void setLocations(Locations locations) {
+        this.locations = locations;
+    }
     public String getDepartmentName() {
         return this.departmentName;
     }
     
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
-    }
-    public Short getLocationId() {
-        return this.locationId;
-    }
-    
-    public void setLocationId(Short locationId) {
-        this.locationId = locationId;
     }
     public Set getEmployeeses() {
         return this.employeeses;
