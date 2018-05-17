@@ -47,6 +47,10 @@ Contributor(s):
     <property name="hibernate.connection.username">HR</property>
     <property name="hibernate.connection.password">inf5180</property>
     <mapping resource="entites/Departments.hbm.xml"/>
+    <mapping resource="entites/Regions.hbm.xml"/>
+    <mapping resource="entites/Locations.hbm.xml"/>
+    <mapping resource="entites/Countries.hbm.xml"/>
+    <mapping resource="entites/Jobs.hbm.xml"/>
     <mapping resource="entites/Employees.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
