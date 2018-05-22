@@ -42,7 +42,7 @@ public class Main {
         Detaillivraison dl = new Detaillivraison(id, livraison, new BigDecimal(1000));  //(DetaillivraisonId id, Livraison livraison, BigDecimal quantitelivree)
        
         DetaillivraisonId id2 = new DetaillivraisonId(new BigDecimal(244), new BigDecimal(4), new BigDecimal(20));//(BigDecimal nolivraison, BigDecimal nocommande, BigDecimal noarticle)
-        Detaillivraison dl2 = new Detaillivraison(id2, livraison, new BigDecimal(1000));
+        Detaillivraison dl2 = new Detaillivraison(id, livraison, new BigDecimal(1000));
 
         Set Detaillivraisons = new HashSet();
         Detaillivraisons.add(dl);
