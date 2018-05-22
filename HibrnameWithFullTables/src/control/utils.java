@@ -138,6 +138,14 @@ public class utils {
         tx.commit();
         session.close();
     }
+       static void deleteDetailLivraison(Detaillivraison Detaillivraison) {
+                session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(Detaillivraison);
+        
+        tx.commit();
+        session.close();
+    }
 
     static void updateClient(Client client) {
         session = HibernateUtil.getSessionFactory().openSession();
@@ -170,6 +178,8 @@ public class utils {
         session.close();
         System.out.println("Article Updated");
     }
+
+   
 
   
 }

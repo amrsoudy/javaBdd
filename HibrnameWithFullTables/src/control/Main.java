@@ -3,6 +3,7 @@ package control;
 import entitie.Article;
 import entitie.Client;
 import entitie.Commande;
+import entitie.Detaillivraison;
 import entitie.DetaillivraisonId;
 import entitie.Lignecommande;
 import entitie.LignecommandeId;
@@ -30,41 +31,39 @@ public class Main {
     public static void main(String[] args) throws ParseException {
         SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 
-        Client client1 = new Client(new BigDecimal(1919), "Amr", "5555555555");
+        Client client1 = new Client(new BigDecimal(19919), "Amr", "5555555555");
         utils.insertClient(client1);
 
-        Commande commande1 = new Commande(new BigDecimal(2929), client1, dt.parse("2011-08-09"));
-       utils.insertCommande(commande1);
+        Commande commande1 = new Commande(new BigDecimal(29929), client1, dt.parse("2011-08-09"));
+        utils.insertCommande(commande1);
 
-        Commande commande2 = new Commande(new BigDecimal(2828), client1, dt.parse("2015-08-09"));
-       utils.insertCommande(commande2);
+        Commande commande2 = new Commande(new BigDecimal(28828), client1, dt.parse("2015-08-09"));
+        utils.insertCommande(commande2);
 
-        Commande commande3 = new Commande(new BigDecimal(2727), client1, dt.parse("2017-08-09"));
+        Commande commande3 = new Commande(new BigDecimal(27727), client1, dt.parse("2017-08-09"));
         utils.insertCommande(commande3);
 
-        LignecommandeId id1 = new LignecommandeId(new BigDecimal(2929), new BigDecimal(10));
+        LignecommandeId id1 = new LignecommandeId(new BigDecimal(29929), new BigDecimal(10));
         Article Article1 = new Article(new BigDecimal(10), "Cahier", new BigDecimal(5), new BigDecimal(10));
         Lignecommande Lignecommande1 = new Lignecommande(id1, commande1, Article1, new BigDecimal(5));
         utils.insertLignecommande(Lignecommande1);
 
-        LignecommandeId id2 = new LignecommandeId(new BigDecimal(2929), new BigDecimal(20));
+        LignecommandeId id2 = new LignecommandeId(new BigDecimal(29929), new BigDecimal(20));
         Article Article2 = new Article(new BigDecimal(20), "Book", new BigDecimal(5), new BigDecimal(10));
         Lignecommande Lignecommande2 = new Lignecommande(id2, commande1, Article2, new BigDecimal(5));
-       utils.insertLignecommande(Lignecommande2);
+        utils.insertLignecommande(Lignecommande2);
 
-        LignecommandeId id3 = new LignecommandeId(new BigDecimal(2828), new BigDecimal(10));
+        LignecommandeId id3 = new LignecommandeId(new BigDecimal(28828), new BigDecimal(10));
         Lignecommande Lignecommande3 = new Lignecommande(id3, commande2, Article1, new BigDecimal(2));
-       utils.insertLignecommande(Lignecommande3);
+        //utils.insertLignecommande(Lignecommande3);
 
-        LignecommandeId id4 = new LignecommandeId(new BigDecimal(2727), new BigDecimal(10));
+        LignecommandeId id4 = new LignecommandeId(new BigDecimal(27727), new BigDecimal(10));
         Lignecommande Lignecommande4 = new Lignecommande(id4, commande3, Article1, new BigDecimal(3));
-       utils.insertLignecommande(Lignecommande4);
+        utils.insertLignecommande(Lignecommande4);
 
-        LignecommandeId id5 = new LignecommandeId(new BigDecimal(2727), new BigDecimal(20));
+        LignecommandeId id5 = new LignecommandeId(new BigDecimal(27727), new BigDecimal(20));
         Lignecommande Lignecommande5 = new Lignecommande(id5, commande3, Article2, new BigDecimal(1));
         utils.insertLignecommande(Lignecommande5);
-
-   
 
         Set commandsHS = new HashSet();
         commandsHS.add(commande1);
@@ -103,14 +102,26 @@ public class Main {
         System.out.println("Add the HS of all lignesCommande that's include  Article 2 ");
 
         client1.setCommandes(commandsHS);
-        
+
         utils.updateClient(client1);
 
         utils.updateCommande(commande1);
         utils.updateCommande(commande2);
         utils.updateCommande(commande3);
 
+        System.out.println("**********************************now Creating the part of Livrison and the DetailLivrision and update the ligne commande with HS of the DetaileLivrison");
 
+        Livraison Livraison1 = new Livraison(new BigDecimal(3131), dt.parse("2016-06-19"));
+         //utils.insertLivraison(Livraison1);
+
+        DetaillivraisonId DetaillivraisonId1 = new DetaillivraisonId(new BigDecimal(3131), new BigDecimal(2727), new BigDecimal(20));
+        Detaillivraison Detaillivraison1 = new Detaillivraison(DetaillivraisonId1, Livraison1, Lignecommande5, new BigDecimal(6));
+          //utils.insertDetailLivrison(Detaillivraison1);
+
+        Set detaillivraisons = new HashSet();
+        detaillivraisons.add(Detaillivraison1);
+
+        Livraison1.setDetaillivraisons(detaillivraisons);
 
         utils.deleteLignecommande(Lignecommande1);
         utils.deleteLignecommande(Lignecommande2);
@@ -121,15 +132,8 @@ public class Main {
         utils.deleteCommande(commande2);
         utils.deleteCommande(commande3);
         utils.delectClient(client1);
-        System.out.println("**********************************now Creating the part of Livrison and the DetailLivrision and update the ligne commande with HS of the DetaileLivrison");
-
-        Livraison Livraison1 = new Livraison(new BigDecimal(3131), dt.parse("2016-06-19"));
-        utils.insertLivraison(Livraison1);
-
-        DetaillivraisonId DetaillivraisonId1 = new DetaillivraisonId();
-        
-        
-        utils.deleteLivraison(Livraison1);
+        //utils.deleteDetailLivraison(Detaillivraison1);
+        //utils.deleteLivraison(Livraison1);
 
     }
 
