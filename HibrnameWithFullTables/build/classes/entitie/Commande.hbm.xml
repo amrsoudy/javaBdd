@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-21 20:28:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="entitie.Commande" optimistic-lock="version" schema="OOP" table="COMMANDE">
+    <id name="nocommande" type="big_decimal">
+      <column name="NOCOMMANDE" precision="22" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="entitie.Client" fetch="select" name="client">
+      <column name="NOCLIENT" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="datecommande" type="date">
+      <column length="7" name="DATECOMMANDE" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="lignecommandes" table="LIGNECOMMANDE">
+      <key>
+        <column name="NOCOMMANDE" not-null="true" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="entitie.Lignecommande"/>
+    </set>
+  </class>
+</hibernate-mapping>

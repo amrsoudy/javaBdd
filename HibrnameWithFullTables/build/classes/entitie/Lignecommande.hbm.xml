@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-21 20:28:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="entitie.Lignecommande" optimistic-lock="version" schema="OOP" table="LIGNECOMMANDE">
+    <composite-id class="entitie.LignecommandeId" name="id">
+      <key-property name="nocommande" type="big_decimal">
+        <column name="NOCOMMANDE" precision="22" scale="0"/>
+      </key-property>
+      <key-property name="noarticle" type="big_decimal">
+        <column name="NOARTICLE" precision="22" scale="0"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="entitie.Commande" fetch="select" insert="false" name="commande" update="false">
+      <column name="NOCOMMANDE" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="entitie.Article" fetch="select" insert="false" name="article" update="false">
+      <column name="NOARTICLE" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="quantite" type="big_decimal">
+      <column name="QUANTITE" not-null="true" precision="22" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="detaillivraisons" table="DETAILLIVRAISON">
+      <key>
+        <column name="NOCOMMANDE" not-null="true" precision="22" scale="0"/>
+        <column name="NOARTICLE" not-null="true" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="entitie.Detaillivraison"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-21 20:28:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="entitie.Detaillivraison" optimistic-lock="version" schema="OOP" table="DETAILLIVRAISON">
+    <composite-id class="entitie.DetaillivraisonId" name="id">
+      <key-property name="nolivraison" type="big_decimal">
+        <column name="NOLIVRAISON" precision="22" scale="0"/>
+      </key-property>
+      <key-property name="nocommande" type="big_decimal">
+        <column name="NOCOMMANDE" precision="22" scale="0"/>
+      </key-property>
+      <key-property name="noarticle" type="big_decimal">
+        <column name="NOARTICLE" precision="22" scale="0"/>
+      </key-property>
+    </composite-id>
+    <many-to-one class="entitie.Livraison" fetch="select" insert="false" name="livraison" update="false">
+      <column name="NOLIVRAISON" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <many-to-one class="entitie.Lignecommande" fetch="select" insert="false" name="lignecommande" update="false">
+      <column name="NOCOMMANDE" not-null="true" precision="22" scale="0"/>
+      <column name="NOARTICLE" not-null="true" precision="22" scale="0"/>
+    </many-to-one>
+    <property name="quantitelivree" type="big_decimal">
+      <column name="QUANTITELIVREE" not-null="true" precision="22" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

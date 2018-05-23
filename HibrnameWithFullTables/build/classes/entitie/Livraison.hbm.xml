@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-21 20:28:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class name="entitie.Livraison" optimistic-lock="version" schema="OOP" table="LIVRAISON">
+    <id name="nolivraison" type="big_decimal">
+      <column name="NOLIVRAISON" precision="22" scale="0"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="datelivraison" type="date">
+      <column length="7" name="DATELIVRAISON" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="detaillivraisons" table="DETAILLIVRAISON">
+      <key>
+        <column name="NOLIVRAISON" not-null="true" precision="22" scale="0"/>
+      </key>
+      <one-to-many class="entitie.Detaillivraison"/>
+    </set>
+  </class>
+</hibernate-mapping>
