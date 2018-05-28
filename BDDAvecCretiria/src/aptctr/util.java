@@ -12,6 +12,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import persistance.Customer;
 import persistance.PurchaseOrder;
@@ -167,6 +168,28 @@ class util {
         session.close();
         
         
+        
+    }
+
+    static void listPoWithproductId(int i) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria cr = session.createCriteria(PurchaseOrder.class);
+        
+        cr.add(Restrictions.eq("productId", i));
+        
+        List pos = cr.list();
+        
+        for(Iterator iterator = pos.iterator();iterator.hasNext();){
+            
+            PurchaseOrder po = (PurchaseOrder)iterator.next();
+            
+            System.out.println(po.getCustomerId()+" "+po.getProductId()+"  "+po.getQuantity());
+        
+        
+        
+        }
+        
+        session.close();
         
     }
 }

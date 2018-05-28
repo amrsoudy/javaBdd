@@ -28,16 +28,24 @@ public class Main {
 //         
 //
 //        util.update(customer);
-//        String query = null;
+
+//      
+
+
 //        String x = "from Customer where customerId = :x";
 //        util.selectQuery(x,36);
+
 //        util.selectQuery(x,106);
-        String x2 = "select p.orderNum,p.quantity,p.shippingCost,p.shippingDate,p.customerId,c.name,count(*) from PurchaseOrder p ,Customer c where p.customerId=c.customerId "
-                + " group by p.orderNum,p.quantity,p.shippingCost,p.shippingDate,p.customerId,c.name";
-        util.selectPoWithCustomer(x2);
+
+
+
+//        String x2 = "select p.orderNum,p.quantity,p.shippingCost,p.shippingDate,p.customerId,c.name,count(*) from PurchaseOrder p ,Customer c where p.customerId=c.customerId "
+//                + " group by p.orderNum,p.quantity,p.shippingCost,p.shippingDate,p.customerId,c.name";
+//        util.selectPoWithCustomer(x2);
 
 
         //util.listCustomer_idCGT(3);
+        util.listPoWithproductId(980001);
         //util.listCustomerNamesStartWith("b");
         // util.ListPOForCustomer_id(36);
 //
