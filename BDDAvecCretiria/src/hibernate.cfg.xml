@@ -41,16 +41,17 @@ Contributor(s):
 -->
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
-    <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-    <property name="hibernate.connection.url">jdbc:oracle:thin:@144.217.163.57:1521:XE</property>
-    <property name="hibernate.connection.username">HR</property>
-    <property name="hibernate.connection.password">inf5180</property>
-    <mapping resource="entites/Departments.hbm.xml"/>
-    <mapping resource="entites/Regions.hbm.xml"/>
-    <mapping resource="entites/Locations.hbm.xml"/>
-    <mapping resource="entites/Countries.hbm.xml"/>
-    <mapping resource="entites/Jobs.hbm.xml"/>
-    <mapping resource="entites/Employees.hbm.xml"/>
+    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/sample</property>
+    <property name="hibernate.connection.username">app</property>
+    <property name="hibernate.connection.password">app</property>
+    <mapping resource="persistance/Manufacturer.hbm.xml"/>
+    <mapping resource="persistance/MicroMarket.hbm.xml"/>
+    <mapping resource="persistance/DiscountCode.hbm.xml"/>
+    <mapping resource="persistance/PurchaseOrder.hbm.xml"/>
+    <mapping resource="persistance/Customer.hbm.xml"/>
+    <mapping resource="persistance/ProductCode.hbm.xml"/>
+    <mapping resource="persistance/Product.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

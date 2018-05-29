@@ -8,6 +8,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 /*
@@ -25,14 +26,22 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        
+        SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
         session.beginTransaction();
         
 
-        Query query = session.createQuery("from Employees where first_name like ?");
+        Query query = session.createQuery("select r.regionId,r.regionName ,count(*) from countries c inner join c.region r group by r.regionId,r.regionName");
+        List <Object []> results =query.list();
+        for(Object[] line :results){
         
-        query.setParameter(0, "S%");
-        List<Employees> result = query.list();
+            System.out.println("le nom de la region : "+line[1]+" - "+line[0]+" - "+line[2]);
+        
+        }
+        
+       // query.setParameter(0, "S%");
+      //  List<Employees> result = query.list();
 //       
 //       Criteria criteria = session.createCriteria(Employees.class);
 //       criteria.add(Restrictions.like("firstName","S%"));
@@ -51,24 +60,24 @@ public class Main {
       
       
         
-        for (Employees e : result) {
-           
-            if(e.getDepartments()!=null){
-                System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + e.getDepartments().getDepartmentName());
-            }else {
-             System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + null);
-            
-            }
+//        for (Employees e : result) {
+//           
+//            if(e.getDepartments()!=null){
+//                System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + e.getDepartments().getDepartmentName());
+//            }else {
+//             System.out.println(e.getEmployeeId() + " " + e.getFirstName() + " " + null);
+//            
+//            }
           
-            
-                
-                
-                
+           
         
-        }
-
+       // }
+        if (!session.isConnected()){
         session.close();
-
+        }
+        if (!sessionFactory.isClosed()){
+        sessionFactory.close();
+        }
     }
 
 }
