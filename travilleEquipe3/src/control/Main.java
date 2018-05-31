@@ -78,7 +78,8 @@ public class Main {
         }
         System.out.println("*********************************************************************************************");
         
-        Query q2 = session.createQuery("select l.nolivraison, l.datelivraison, sum(d.quantitelivree) from Livraison l, Detaillivraison d where l.nolivraison=d.id.nolivraison group by l.nolivraison,l.datelivraison");
+        Query q2 = session.createQuery("select l.nolivraison, l.datelivraison, sum(d.quantitelivree) from Livraison l, Detaillivraison d where l.nolivraison=d.id.nolivraison "
+                + "group by l.nolivraison,l.datelivraison");
         List<Object[]> results =  q2.list();
         
         for(Object[] line : results){
