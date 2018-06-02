@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-28 19:53:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Piece" table="PIECE" schema="AMR" optimistic-lock="version">
+        <id name="numpiece" type="int">
+            <column name="NUMPIECE" />
+            <generator class="assigned" />
+        </id>
+        <property name="designation" type="string">
+            <column name="DESIGNATION" length="20" />
+        </property>
+        <property name="poids" type="java.lang.Double">
+            <column name="POIDS" precision="52" scale="0" />
+        </property>
+        <property name="couleur" type="string">
+            <column name="COULEUR" length="10" not-null="true" unique="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="30" not-null="true" />
+        </property>
+        <property name="numsuccursale" type="java.lang.Integer">
+            <column name="NUMSUCCURSALE" />
+        </property>
+        <property name="prixunitaire" type="java.lang.Double">
+            <column name="PRIXUNITAIRE" precision="52" scale="0" />
+        </property>
+        <property name="quantitestock" type="java.lang.Integer">
+            <column name="QUANTITESTOCK" />
+        </property>
+        <property name="seuilstock" type="java.lang.Integer">
+            <column name="SEUILSTOCK" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-28 19:53:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Vente" table="VENTE" schema="AMR" optimistic-lock="version">
+        <composite-id name="id" class="entity.VenteId">
+            <key-property name="numvendeur" type="int">
+                <column name="NUMVENDEUR" />
+            </key-property>
+            <key-property name="numpiece" type="int">
+                <column name="NUMPIECE" />
+            </key-property>
+            <key-property name="numprojet" type="int">
+                <column name="NUMPROJET" />
+            </key-property>
+        </composite-id>
+        <property name="quantite" type="java.lang.Integer">
+            <column name="QUANTITE" />
+        </property>
+        <property name="datevente" type="date">
+            <column name="DATEVENTE" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
