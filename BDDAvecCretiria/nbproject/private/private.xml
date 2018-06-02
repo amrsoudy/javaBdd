@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/1795162/Documents/GitHub/javaBdd/BDDAvecCretiria/src/aptctr/Main.java</file>
+            <file>file:/C:/Users/1795162/Documents/GitHub/javaBdd/BDDAvecCretiria/src/aptctr/util.java</file>
+            <file>file:/C:/Users/1795162/Documents/GitHub/javaBdd/BDDAvecCretiria/src/persistance/PurchaseOrder.java</file>
+        </group>
+>>>>>>> 86236dc8d2be2c5502d4f763bd643dcb61c12e0c
     </open-files>
 </project-private>
