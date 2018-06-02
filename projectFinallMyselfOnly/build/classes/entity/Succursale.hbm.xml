@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-28 19:53:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Succursale" table="SUCCURSALE" schema="AMR" optimistic-lock="version">
+        <id name="numsuccursale" type="int">
+            <column name="NUMSUCCURSALE" />
+            <generator class="assigned" />
+        </id>
+        <property name="designation" type="string">
+            <column name="DESIGNATION" length="20" not-null="true" />
+        </property>
+        <property name="ville" type="string">
+            <column name="VILLE" length="20" not-null="true" />
+        </property>
+        <property name="surface" type="java.lang.Double">
+            <column name="SURFACE" precision="52" scale="0" />
+        </property>
+        <property name="capitale" type="string">
+            <column name="CAPITALE" length="20" />
+        </property>
+    </class>
+</hibernate-mapping>

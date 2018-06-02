@@ -12,9 +12,12 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javafx.scene.layout.Region;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -58,7 +61,13 @@ public class Main {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         Session session = sessionFactory.openSession();
-        session.beginTransaction();
+                
+        Criteria cr = session.createCriteria(Region.class);
+        cr.add(Restrictions.eq("regionId",new BigDecimal(2)));
+        
+        
+        
+         session.beginTransaction();
 
         Query q = session.createQuery("from Livraison");
         List<Livraison> list = q.list();
@@ -85,6 +94,10 @@ public class Main {
         if (!sessionFactory.isClosed()) {
             sessionFactory.close();
         }
+        
+       
+        
+        
 
     }
 

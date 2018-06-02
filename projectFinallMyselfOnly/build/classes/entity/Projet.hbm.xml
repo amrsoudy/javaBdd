@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-05-28 19:53:35 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Projet" table="PROJET" schema="AMR" optimistic-lock="version">
+        <id name="numprojet" type="int">
+            <column name="NUMPROJET" />
+            <generator class="assigned" />
+        </id>
+        <property name="titre" type="string">
+            <column name="TITRE" length="20" not-null="true" />
+        </property>
+        <property name="numsuccursale" type="java.lang.Integer">
+            <column name="NUMSUCCURSALE" />
+        </property>
+        <property name="budjet" type="java.lang.Double">
+            <column name="BUDJET" precision="52" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

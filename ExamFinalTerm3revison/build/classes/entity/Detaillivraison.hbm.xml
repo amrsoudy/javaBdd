@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-06-02 11:50:05 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Detaillivraison" table="DETAILLIVRAISON" schema="ROOT" optimistic-lock="version">
+        <composite-id name="id" class="entity.DetaillivraisonId">
+            <key-property name="nolivraison" type="int">
+                <column name="NOLIVRAISON" />
+            </key-property>
+            <key-property name="nocommande" type="int">
+                <column name="NOCOMMANDE" />
+            </key-property>
+            <key-property name="noarticle" type="int">
+                <column name="NOARTICLE" />
+            </key-property>
+        </composite-id>
+        <property name="quantitylivree" type="java.lang.Integer">
+            <column name="QUANTITYLIVREE" />
+        </property>
+    </class>
+</hibernate-mapping>
