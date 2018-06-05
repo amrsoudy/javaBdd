@@ -3,7 +3,9 @@ package Control;
 import static Control.Main.sessionFactory;
 import entity.Livraison;
 import java.util.Arrays;
+import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -67,6 +69,26 @@ public class DAO_Livraison {
         tx.commit();
         session.close();
         System.out.println("deleted livrison ");
+    }
+     public static void afficher() {
+
+        sessionFactory = HibernateUtil.getSessionFactory();
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        Query q = session.createQuery("from Livraison");
+        
+        List<Livraison> list  = q.list();
+        
+        
+        for (Livraison l : list ){
+            System.out.println(l.getNolivraison()+"----"+l.getDatelivraison());
+        
+        }
+
+
+        session.close();
+
+
     }
 
 }

@@ -7,6 +7,8 @@ package Control;
 
 import static Control.Main.sessionFactory;
 import entity.Detaillivraison;
+import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -72,6 +74,27 @@ public class DAO_DetaillLivraison {
 
             System.out.println("problem avec le delete de detaille Livraison ");
         }
+
+    }
+    
+    public static void afficher() {
+
+        sessionFactory = HibernateUtil.getSessionFactory();
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        Query q = session.createQuery("from Detaillivraison");
+        
+        List<Detaillivraison> list  = q.list();
+        
+        
+        for (Detaillivraison l : list ){
+            System.out.println(l.getId().getNolivraison()+"--"+l.getId().getNocommande()+"----"+l.getId().getNoarticle()+"---"+l.getQuantitylivree());
+        
+        }
+
+
+        session.close();
+
 
     }
 
