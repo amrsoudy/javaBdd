@@ -6,7 +6,7 @@
 package DAO;
 
 import Control.HibernateUtil;
-import entity.Livraison;
+import entity.Detaillivraison;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -17,24 +17,23 @@ import org.hibernate.Transaction;
  *
  * @author AMR
  */
-public class ListLivraison {
+public class ListDetailLivraison {
 
     public static void afficher() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.getTransaction();
-
         session.beginTransaction();
 
-        Query query = session.createQuery("from Livraison");
-        List<Livraison> list = query.list();
+        Query query = session.createQuery("from Detaillivraison");
 
-        for (Livraison l : list) {
+        List<Detaillivraison> list = query.list();
 
-            System.out.println(l.getNolivraison() + "---" + l.getDatelivraison());
+        for (Detaillivraison l : list) {
+
+            System.out.println(l.getId().getNoarticle() + "--" + l.getId().getNocommande() + "--" + l.getId().getNolivraison() + "--" + l.getQuantitylivree());
 
         }
-
-        tx.commit();
+tx.commit();
         session.close();
 
     }

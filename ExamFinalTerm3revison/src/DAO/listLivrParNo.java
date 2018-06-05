@@ -10,22 +10,22 @@ import entity.Livraison;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
  *
  * @author AMR
  */
-public class ListLivraison {
-
-    public static void afficher() {
+public class listLivrParNo {
+    
+    
+    public static void afficherparNo(int no) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.getTransaction();
 
         session.beginTransaction();
 
-        Query query = session.createQuery("from Livraison");
+        Query query = session.createQuery("from Livraison where nolivraison = "+no);
         List<Livraison> list = query.list();
 
         for (Livraison l : list) {
@@ -38,5 +38,5 @@ public class ListLivraison {
         session.close();
 
     }
-
+    
 }
