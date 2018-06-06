@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/entity/Livraison.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/DAO/ListDetailLivraison.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/Control/DAO_Livraison.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/DAO/ListLivraison.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/DAO/listLivrParNo.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/Control/Main.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/entity/Detaillivraison.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/DAO/updateDetailLivraisonparNO.java</file>
+            <file>file:/C:/Users/amrso/OneDrive/Documents/GitHub/javaBdd/ExamFinalTerm3revison/src/entity/DetaillivraisonId.java</file>
+        </group>
     </open-files>
 </project-private>
