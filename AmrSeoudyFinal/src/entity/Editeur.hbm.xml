@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-06-06 08:39:39 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Editeur" table="EDITEUR" schema="BD1TEAM9" optimistic-lock="version">
+        <id name="idEditeur" type="big_decimal">
+            <column name="ID_EDITEUR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nomEditeur" type="string">
+            <column name="NOM_EDITEUR" length="20" not-null="true" />
+        </property>
+        <property name="typeEditeur" type="string">
+            <column name="TYPE_EDITEUR" length="20" not-null="true" />
+        </property>
+        <property name="paysEditeur" type="string">
+            <column name="PAYS_EDITEUR" length="20" not-null="true" />
+        </property>
+        <set name="livres" table="LIVRE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EDITEUR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="entity.Livre" />
+        </set>
+    </class>
+</hibernate-mapping>
